@@ -65,9 +65,9 @@ class Post(models.Model):
     # 投稿する画像(１つの投稿につき１画像)
     img_url = models.ImageField(upload_to="api_v1/images/")
     # 緯度
-    map_lat = models.DecimalField(u'緯度', max_digits=10, decimal_places=7, default=0);
+    map_lat = models.DecimalField(u'緯度', max_digits=20, decimal_places=10, default=0);
     # 経度
-    map_lon = models.DecimalField(u'経度', max_digits=10, decimal_places=7, default=0);
+    map_lon = models.DecimalField(u'経度', max_digits=20, decimal_places=10, default=0);
 
     # いいねの数
     like_cnt = models.IntegerField()

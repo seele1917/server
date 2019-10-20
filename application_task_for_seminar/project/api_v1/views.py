@@ -216,15 +216,15 @@ def images(request):
     else:
         return HttpResponse("不正なリクエスト", status=400)
 
+import json
 # レコメンドAPI
 @csrf_exempt
 def reccomend(request):
     if request.method == 'GET':
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
-        response = HttpResponse(serializer.data, status=200)
+        response = HttpResponse(json.dumps(serializer.data, ensure_ascii=False), status=200)
         response['content-type'] = 'application/json; charset=utf-8'
-        print(response)
         return response
 
 # api viewer(debug用)
